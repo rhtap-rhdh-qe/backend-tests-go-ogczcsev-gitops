@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: backend-tests-go-ogczcsev
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: backend-tests-go-ogczcsev 
+  name: backend-tests-go-ogczcsev
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: backend-tests-go-ogczcsev
+    weight: 100 
